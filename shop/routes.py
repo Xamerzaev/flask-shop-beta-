@@ -9,10 +9,18 @@ def index():
 def shop():
     return render_template ('shop.html')
 
-app.route('/furniture')
+@app.route('/furniture')
 def furniture():
     return render_template ('furniture.html')
 
-app.route('/contact')
+@app.route('/contact')
 def contact():
     return render_template ('contact.html')
+
+@app.route('/about')
+def about():
+    return render_template ('about.html')
+
+@app.route('/index')
+def home():
+    return render_template ('index.html')
