@@ -2,139 +2,32 @@
 {%block content%}
 
 <section class="slider_section ">
-  <div class="play_btn">
-    <a href="">
-      <img src="{{ url_for('static', filename='images/play.png') }}" alt="">
-    </a>
-  </div>
   <div class="number_box">
     <div>
       <ol class="carousel-indicators indicator-2">
         <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active">01</li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="1">02</li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="2">03</li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="3">04</li>
       </ol>
     </div>
   </div>
   <div class="container">
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-      <ol class="carousel-indicators">
-        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
-      </ol>
       <div class="carousel-inner">
         <div class="carousel-item active">
           <div class="row">
             <div class="col-md-6">
               <div class="detail-box">
                 <h1>
-                  The Latest
+                  Брендовая
                   <span>
-                    Furniture
+                    мебель
                   </span>
                 </h1>
-                <p>
-                 здесь текст
-                </p>
                 <div class="btn-box">
-                  <a href="" class="btn-1">
-                    Далее
+                  <a href="{{url_for('shop') }}" class="btn-1">
+                    Магазин
                   </a>
-                  <a href="" class="btn-2">
+                  <a href="{{url_for('contact') }}" class="btn-2">
                     Свяжитесь с нами
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6 img-container">
-              <div class="img-box">
-                <img src="{{ url_for('static', filename='images/slider-img.png') }}" alt="">
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="carousel-item ">
-          <div class="row">
-            <div class="col-md-6">
-              <div class="detail-box">
-                <h1>
-                  The Latest
-                  <span>
-                    Furniture
-                  </span>
-                </h1>
-                <p>
-                  здесь текст!
-                </p>
-                <div class="btn-box">
-                  <a href="" class="btn-1">
-                    Read More
-                  </a>
-                  <a href="" class="btn-2">
-                    Contact us
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6 img-container">
-              <div class="img-box">
-                <img src="{{ url_for('static', filename='images/slider-img.png') }}" alt="">
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="carousel-item ">
-          <div class="row">
-            <div class="col-md-6">
-              <div class="detail-box">
-                <h1>
-                  The Latest
-                  <span>
-                    Furniture
-                  </span>
-                </h1>
-                <p>
-                  здесь текст
-                </p>
-                <div class="btn-box">
-                  <a href="" class="btn-1">
-                    Read More
-                  </a>
-                  <a href="" class="btn-2">
-                    Contact us
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6 img-container">
-              <div class="img-box">
-                <img src="{{ url_for('static', filename='images/slider-img.png') }}" alt="">
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="carousel-item ">
-          <div class="row">
-            <div class="col-md-6">
-              <div class="detail-box">
-                <h1>
-                  The Latest
-                  <span>
-                    Furniture
-                  </span>
-                </h1>
-                <p>
-                  здесь текст
-                </p>
-                <div class="btn-box">
-                  <a href="" class="btn-1">
-                    Read More
-                  </a>
-                  <a href="" class="btn-2">
-                    Contact us
                   </a>
                 </div>
               </div>
@@ -163,14 +56,14 @@
         <div class="detail-box">
           <div class="heading_container">
             <h2>
-              About Us
+              О нас
             </h2>
 
           </div>
           <p>
-            здесь тоже текст
+            ...
           </p>
-          <a href="">
+          <a href="{{url_for('about') }}">
             Далее
           </a>
         </div>
@@ -196,7 +89,7 @@
           <div class="detail-box">
             <div class="heading_container">
               <h2>
-                Trending Categories
+                Трендовые продажи
               </h2>
             </div>
             <div class="tab_container">
@@ -210,7 +103,7 @@
                 <hr>
                 <div class="t-name">
                   <h5>
-                    Chairs
+                    Стул
                   </h5>
                 </div>
               </div>
@@ -224,7 +117,7 @@
                 <hr>
                 <div class="t-name">
                   <h5>
-                    Tables
+                    Стол
                   </h5>
                 </div>
               </div>
@@ -238,7 +131,7 @@
                 <hr>
                 <div class="t-name">
                   <h5>
-                    Bads
+                    Кровать
                   </h5>
                 </div>
               </div>
@@ -252,7 +145,7 @@
                 <hr>
                 <div class="t-name">
                   <h5>
-                    Furnitures
+                    Мебель
                   </h5>
                 </div>
               </div>
@@ -360,17 +253,11 @@
       <div class="col-md-6">
         <div class="detail-box">
           <h2>
-            The Latest Collection
+            Последние коллекции
           </h2>
           <h2 class="main_heading">
-            50% DISCOUNT
+            50% скидки
           </h2>
-
-          <div class="">
-            <a href="">
-              Buy Now
-            </a>
-          </div>
         </div>
       </div>
       <div class="col-md-6">
@@ -391,92 +278,39 @@
   <div class="container">
     <div class="heading_container">
       <h2>
-        Featured Brands
+        Брендовая мебель
       </h2>
     </div>
     <div class="brand_container layout_padding2">
+      {% for product in products %}
       <div class="box">
         <a href="">
           <div class="new">
             <h5>
-              New
+              new
             </h5>
           </div>
           <div class="img-box">
-            <img src="{{ url_for('static', filename='images/slider-img.png') }}" alt="">
+            <img src="{{ url_for('static', filename = 'images/' + product.image) }}" alt="">
           </div>
           <div class="detail-box">
             <h6 class="price">
-              $100
+              ${{ product.price }}
             </h6>
             <h6>
-              Chair
+              {{ product.title }}
             </h6>
           </div>
         </a>
       </div>
-      <div class="box">
-        <a href="">
-          <div class="img-box">
-            <img src="{{ url_for('static', filename='images/slider-img.png') }}" alt="">
-          </div>
-          <div class="detail-box">
-            <h6 class="price">
-              $100
-            </h6>
-            <h6>
-              Chair
-            </h6>
-          </div>
-        </a>
-      </div>
-      <div class="box">
-        <a href="">
-          <div class="img-box">
-            <img src="{{ url_for('static', filename='images/slider-img.png') }}" alt="">
-          </div>
-          <div class="detail-box">
-            <h6 class="price">
-              $100
-            </h6>
-            <h6>
-              Chair
-            </h6>
-          </div>
-        </a>
-      </div>
-      <div class="box">
-        <a href="">
-          <div class="img-box">
-            <img src="{{ url_for('static', filename='images/slider-img.png') }}" alt="">
-          </div>
-          <div class="detail-box">
-            <h6 class="price">
-              $100
-            </h6>
-            <h6>
-              Chair
-            </h6>
-          </div>
-        </a>
-      </div>
+      {% endfor %}
     </div>
-    <a href="" class="brand-btn">
-      See More
+    <a href="{{url_for('shop') }}" class="brand-btn">
+      В магазин
     </a>
   </div>
 </section>
 
 <!-- end brand section -->
 
-<!-- info section -->
-<section class="info_section layout_padding2">
-  <div class="container">
-    <div class="info_logo">
-      <h2>
-        Mansur.py
-      </h2>
-    </div>
-  </div>
-</section>
 {%endblock%}

@@ -2,6 +2,7 @@ body {
   font-family: 'Open Sans', sans-serif;
   color: #0c0c0c;
   background-color: #ffffff;
+  height: 75%
 }
 
 .layout_padding {
@@ -69,7 +70,7 @@ body {
   position: absolute;
   bottom: 0;
   right: 0;
-  width: 45%;
+  width: 20%;
   height: 100%;
   background-image: url(../images/hero-side-bg.png);
   background-size: cover;

@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{%block content%}
+<section class="brand_section layout_padding">
+    <div class="container">
+      <div class="heading_container">
+        <h2>
+          Последние бренды
+        </h2>
+      </div>
+      <div class="brand_container layout_padding2">
+        <div class="box">
+          {% for product in products %}
+          <a href="{{url_for('single_product') }}">
+            <div class="new">
+              <h5>
+                new
+              </h5>
+            </div>
+            <div class="img-box">
+              <img src="{{ url_for('static', filename = product.image) }}" alt="">
+            </div>
+            <div class="detail-box">
+              <h6 class="price">
+                ${{ product.price }}
+              </h6>
+              <h6>
+                {{ product.title }}
+              </h6>
+            </div>
+          </a>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}

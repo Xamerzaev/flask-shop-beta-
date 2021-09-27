@@ -91,25 +91,7 @@ body {
 }
 
 /*header section*/
-.hero_area {
-  height: 100vh;
-  background-image: url(../images/hero-bg.jpg);
-  background-size: cover;
-  position: relative;
-  background-repeat: no-repeat;
-  overflow: hidden;
 
-  &::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    width: 45%;
-    height: 100%;
-    background-image: url(../images/hero-side-bg.png);
-    background-size: cover;
-  }
-}
 
 .sub_page {
   .hero_area {

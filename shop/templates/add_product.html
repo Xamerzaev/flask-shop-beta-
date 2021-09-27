@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<form action="" method="POST" enctype="multipart/form-data" class="form">
+<section class="contact_section layout_padding">
+  <div class="container ">
+    <div class="heading_container">
+      <h2 class="">
+        Добавление товара
+      </h2>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <form action="">
+          <div>
+            <input type="text" name="title" placeholder="Название">
+          </div>
+          <div>
+            <input type="number" name="price" min="1" placeholder="Цена">
+          </div>
+          <div>
+              <input type="text" name="description" placeholder="Описание">
+          </div>
+          <div>
+              <input type="text" name="availibility" placeholder="Наличие">
+          </div>
+          <div>
+              <input type="text" name="category" placeholder="Категория">
+          </div>
+          <div>
+              <input type="file" name="image">
+          </div>
+            <button>
+              Добавить товар
+            </button>
+          </div>
+        </form>
+      </div>
+      <div class="col-md-6">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</form>
+{% endblock %}
