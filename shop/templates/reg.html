@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block content %}
+
+  <form action="" method="POST" enctype="multipart/form-data" class="form">
+    <section class="contact_section layout_padding">
+      <div class="container ">
+        <div class="heading_container">
+          <h2 class="">
+          Регистрация
+        </h2>
+      </div>
+      <p>Пожалуйста, заполните данные для регистрации аккаунта</p>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <form action="">
+            <div>
+             <input type="email"  name="email" placeholder="email" required >
+            </div>
+            <div>
+              <input type="password"  name="password" placeholder="Введите ваш пароль" required>
+            </div>
+            <div>
+              <input type="password"  name="confirm_password" placeholder="Подтвердите ваш пароль" required>  
+            </div>
+            <div class="d-flex ">
+              <button>
+                зарегистрироваться
+              </button>
+            </div>
+          </form>
+          <a class="nav-link" href="login">Уже зарегистривоны?</a>
+        </div>
+        <div class="col-md-6">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  </form>
+  {% endblock %}

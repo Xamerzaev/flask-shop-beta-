@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{%block content%}
+<section class="brand_section layout_padding">
+    <div class="container">
+      <div class="heading_container">
+        <h1>{{product.title}}</h1>
+        <div class="detail-box">
+        <ul>
+        <a href=""><span>В наличии? -  </span> : {{product.availibility}}</a>
+      </ul>
+      <h6 class="price">
+        ${{ product.price }}
+      </h6>
+        <div class="img-box">
+          <img src="{{ url_for('static', filename = 'images/' + product.image) }}" alt="">
+        </div>
+            <div class="detail-box">
+              <h2>
+                Описание товара: 
+              </h2>
+              <p>{{product.description}}</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}

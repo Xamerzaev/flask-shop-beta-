@@ -27,7 +27,7 @@
                     Магазин
                   </a>
                   <a href="{{url_for('contact') }}" class="btn-2">
-                    Свяжитесь с нами
+                    Связаться
                   </a>
                 </div>
               </div>
@@ -291,6 +291,7 @@
             </h5>
           </div>
           <div class="img-box">
+            <h6><a href="{{url_for('product_detail',product_id=product.id) }}"></a></h6>
             <img src="{{ url_for('static', filename = 'images/' + product.image) }}" alt="">
           </div>
           <div class="detail-box">
@@ -298,7 +299,7 @@
               ${{ product.price }}
             </h6>
             <h6>
-              {{ product.title }}
+              <a href="{{url_for('product_detail',product_id=product.id) }}">{{ product.title }}</a>
             </h6>
           </div>
         </a>

@@ -1,8 +1,10 @@
-from flask import render_template, request
-from werkzeug.utils import secure_filename
-from shop.models import Product,db
-from shop import app
 import os
+
+from flask import render_template, request, redirect, url_for
+from flask_login import login_user, logout_user, current_user
+
+from shop import app
+from shop.models import Product, User, db
 
 @app.route('/')
 def index():
@@ -26,6 +28,35 @@ def contact():
 def about():
     return render_template ('about.html')
 
+@app.route('/login', methods=['GET','POST'])
+def login():
+    if current_user.is_authenticated:
+        return redirect(url_for('index'))
+    if request.method == 'POST':
+        user = User.query.filter_by(email=request.form.get('email')).first()
+        if user and user.email == request.form.get('email'):
+            login_user(user)
+            return redirect(url_for('index'))
+    return render_template('login.html')
+
+@app.route('/logout', methods=['GET', 'POST'])
+def logout():
+    logout_user()
+    return redirect(url_for('index'))
+
+@app.route('/reg', methods=['GET', 'POST'])
+def registration():
+    if current_user.is_authenticated:
+        return redirect(url_for('index'))
+    if request.method == 'POST':
+        user = User(email=request.form.get('email'), password=request.form.get('password'))
+        db.session.add(user)
+        db.session.commit()
+        login_user(user)
+        return redirect(url_for('index'))
+        
+    return render_template('reg.html')
+    
 @app.route('/index')
 def home():
     products = Product.query.all()
@@ -43,3 +74,8 @@ def add_product():
         db.session.add(p)
         db.session.commit()
     return render_template('add_product.html')
+
+@app.route('/products/<int:product_id>')
+def product_detail(product_id):
+    product = Product.query.get(product_id)
+    return render_template('product_detail.html', product=product)
