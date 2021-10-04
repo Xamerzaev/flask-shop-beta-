@@ -1,10 +1,10 @@
-import os
-
-from flask import render_template, request, redirect, url_for
+from flask import render_template, request, redirect, url_for, flash
 from flask_login import login_user, logout_user, current_user
 
 from shop import app
 from shop.models import Product, User, db
+
+from shop.forms import RegForm
 
 @app.route('/')
 def index():
@@ -45,17 +45,17 @@ def logout():
     return redirect(url_for('index'))
 
 @app.route('/reg', methods=['GET', 'POST'])
-def registration():
+def reg():
     if current_user.is_authenticated:
         return redirect(url_for('index'))
-    if request.method == 'POST':
-        user = User(email=request.form.get('email'), password=request.form.get('password'))
+    form = RegForm()
+    if form.validate_on_submit():
+        user = User(email=form.email.data, password=form.pasword.data)
         db.session.add(user)
         db.session.commit()
-        login_user(user)
-        return redirect(url_for('index'))
-        
-    return render_template('reg.html')
+        flash('Регистрация прошла успешно!', 'succes')
+        return redirect(url_for('login'))      
+    return render_template('reg.html', form=form)
     
 @app.route('/index')
 def home():
@@ -67,7 +67,7 @@ def add_product():
     if request.method == 'POST':
         f = request.form 
         file_name = request.files.get('image')   
-        filename = secure_filename(file_name.filename)
+        filename = secure_filename (file_name.filename)
         file_name.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
         p = Product(title=f.get('title'),price=f.get('price'),category=f.get('category'),availibility=f.get('availibility'),description=f.get('description'),
         image=file_name.filename)  
