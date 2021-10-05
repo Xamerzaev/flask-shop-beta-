@@ -5,9 +5,9 @@ import email_validator
 from shop.models import User
 
 class RegForm(FlaskForm):
-    email = StringField('Email',validators=[Email('Не правильно ввели свой email'), DataRequired('Это поле обязательно!')])
-    password = PasswordField('Пароль', validators=[DataRequired('Это поле обязательно!')])
-    confirm_password = PasswordField('Подтверждение пароля', validators=[DataRequired('Это поле обязательно!'), EqualTo('password')])
+    email = StringField('Email',validators=[DataRequired(message='Это поле обязательно!'), Email('Не правильно ввели свой email')])
+    password = PasswordField('Пароль', validators=[DataRequired(message='Это поле обязательно!')])
+    confirm_password = PasswordField('Подтверждение пароля', validators=[DataRequired(message='Это поле обязательно!'), EqualTo('password')])
     submit = SubmitField ('Регистрация')
 
     def validate_email (self, email):

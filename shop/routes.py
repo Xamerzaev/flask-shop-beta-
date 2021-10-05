@@ -53,7 +53,8 @@ def reg():
         user = User(email=form.email.data, password=form.pasword.data)
         db.session.add(user)
         db.session.commit()
-        flash('Регистрация прошла успешно!', 'succes')
+        login_user(user)
+        flash('Регистрация прошла успешно!', 'success')
         return redirect(url_for('login'))      
     return render_template('reg.html', form=form)
     
