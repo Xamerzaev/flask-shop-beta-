@@ -1,66 +1,55 @@
-{% extends 'base.html' %}
-{% block content %}
-    <section class="contact_section layout_padding">
+ {% extends 'base.html' %}
+  {% block content %}
+  <form action="" method="POST" enctype="multipart/form-data" class="form" novalidate>
+     {{ form.hidden_tag() }}
+     <section class="contact_section layout_padding">
       <div class="container ">
         <div class="heading_container">
           <h2 class="">
-          Регистрация
-        </h2>
-      </div>
-      <p>Пожалуйста, заполните данные для регистрации аккаунта</p>
-    </div>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6">
-
-        <form action="" method="POST" enctype="multipart/form-data" class="form" novalidate>
-            {{ form.hidden_tag() }}
-            <div>
-              {% if form.email.errors %}
-              {{ form.email(class="form-control form-control-lg is invalid", placeholder='Введите email') }}
-              <div class = 'invalid-feedback'>
-                {% for error in form.email.errors %}
-                <span> {{error}} </span>
-                {% endfor %}
+                  Регистрация
+                </h2>
               </div>
-              {% else %}
-              {{ form.email(class="form-control form-control-lg", placeholder='Введите email') }}
-              {% endif %}
+              <p>Пожалуйста, заполните данные для регистрации аккаунта</p>
             </div>
-
+            <div class="container">
+              <div class="row">
+                <div class="col-md-6">
             <div>
-              {% if form.password.errors %}
-              {{ form.password(class="form-control form-control-lg is invalid", placeholder='Введите пароль') }}
-              <div class = 'invalid-feedback'>
-                {% for error in form.password.errors %}
-                <span> {{error}} </span>
-                {% endfor %}
-              </div>
-              {% else %}
-              {{ form.password(class="form-control form-control-lg", placeholder='Введите пароль') }}
-              {% endif %}
-            </div>
-            <div>
-              {% if form.confirm_password.errors %}
-              {{ form.confirm_password(class="form-control form-control-lg is invalid", placeholder='Подтвердите ваш пароль') }}
-              <div class = 'invalid-feedback'>
-                {% for error in form.confirm_password.errors %}
-                <span> {{error}} </span>
-                {% endfor %}
-              </div>
-              {% else %}
-              {{ form.confirm_password(class="form-control form-control-lg", placeholder='Подтвердите ваш пароль') }}
-              {% endif %}
-            </div>
-              {{ form.submit(class='btn-2') }}
-          <a class="nav-link" href="login">Уже зарегистривоны?</a>
-        </div>
-      </form>
-        <div class="col-md-6">
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
- 
+         {% if form.email.errors %}
+                 {{ form.email(class="form-control form-control-lg is-invalid", placeholder='Введите email') }}
+                 <div class="invalid-feedback">
+                   {% for error in form.email.errors %}
+                   <span>{{ error }}</span>
+                   {% endfor %}
+                 </div>
+                 {% else %}
+                 {{ form.email(class="form-control form-control-lg", placeholder='Введите email') }}
+                 {% endif %}
+         
+     
+         {% if form.password.errors %}
+                 {{ form.password(class="form-control form-control-lg is-invalid", placeholder='Введите пароль') }}
+                 <div class="invalid-feedback">
+                   {% for error in form.password.errors %}
+                   <span>{{ error }}</span>
+                   {% endfor %}
+                 </div>
+                 {% else %}
+                 {{ form.password(class="form-control form-control-lg", placeholder='Введите пароль') }}
+                 {% endif %}
+         
+     
+         {% if form.confirm_password.errors %}
+                 {{ form.confirm_password(class="form-control form-control-lg is-invalid", placeholder='Подтвердите пароль') }}
+                 <div class="invalid-feedback">
+                   {% for error in form.confirm_password.errors %}
+                   <span>{{ error }}</span>
+                   {% endfor %}
+                 </div>
+                 {% else %}
+                 {{ form.confirm_password(class="form-control form-control-lg", placeholder='Подтвердите пароль') }}
+                 {% endif %}
+       {{ form.submit(class='registerbtn', placeholder='register') }}
+       </div>
+    
   {% endblock %}

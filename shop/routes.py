@@ -5,7 +5,8 @@ from shop import app
 from shop.models import Product, User, db
 
 from shop.forms import RegForm
-
+from werkzeug.utils import secure_filename
+import os
 @app.route('/')
 def index():
     products = Product.query.all()
@@ -44,18 +45,18 @@ def logout():
     logout_user()
     return redirect(url_for('index'))
 
-@app.route('/reg', methods=['GET', 'POST'])
-def reg():
+@app.route('/reg', methods=['GET','POST'])
+def registration():
     if current_user.is_authenticated:
         return redirect(url_for('index'))
+    
     form = RegForm()
     if form.validate_on_submit():
-        user = User(email=form.email.data, password=form.pasword.data)
+        user = User(email=form.email.data, password=form.password.data)
         db.session.add(user)
         db.session.commit()
-        login_user(user)
         flash('Регистрация прошла успешно!', 'success')
-        return redirect(url_for('login'))      
+        return redirect(url_for('login'))       
     return render_template('reg.html', form=form)
     
 @app.route('/index')
