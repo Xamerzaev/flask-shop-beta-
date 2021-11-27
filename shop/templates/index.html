@@ -278,7 +278,7 @@
   <div class="container">
     <div class="heading_container">
       <h2>
-        Брендовая мебель
+        Магазин
       </h2>
     </div>
     <div class="brand_container layout_padding2">
@@ -292,7 +292,7 @@
           </div>
           <div class="img-box">
             <h6><a href="{{url_for('product_detail',product_id=product.id) }}"></a></h6>
-            <img src="{{ url_for('static', filename = 'images/' + product.image) }}" alt="">
+            <img src="{{ url_for('static', filename = 'images/' + product.image) }}" height="150" width="250" alt="">
           </div>
           <div class="detail-box">
             <h6 class="price">
@@ -309,6 +309,9 @@
     <a href="{{url_for('shop') }}" class="brand-btn">
       В магазин
     </a>
+    <br>
+
+  </br>
   </div>
 </section>
 

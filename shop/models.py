@@ -15,9 +15,10 @@ class Product(db.Model):
     availibility  = db.Column (db.String(), nullable = False)
     description  = db.Column (db.Text(), nullable = False)
     image = db.Column (db.String(), nullable = False)
+    cartitems = db.relationship('CartItem', backref='Product')
 
-    def __repr__(self) -> str:
-        return self.title
+    def __repr__(self):
+        return '<ProductName %r>' % self.name
 
 
 class User(db.Model, UserMixin):
@@ -26,6 +27,13 @@ class User(db.Model, UserMixin):
     email = db.Column (db.String(), nullable = False, unique = True)
     password = db.Column (db.String(), nullable = False)
     IsAdmin = db.Column (db.Boolean, default = False)
+    cartitems = db.relationship('CartItem', backref='User')
 
     def __repr__(self) -> str:
         return self.email
+
+class CartItem(db.Model):
+    __tablename__='cartitems'
+    id = db.Column(db.Integer,primary_key=True)
+    product_id = db.Column(db.Integer, db.ForeignKey('products.id'))
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'))

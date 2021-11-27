@@ -1,49 +1,35 @@
-
 {% extends 'base.html' %}
 {%block content%}
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
-    <!-- CSS -->
-    <link href="style.css" rel="stylesheet">
-    <meta name="robots" content="noindex,follow" />
-
-  </head>
-
-  <body>
-    <main class="container">
-
-      <!-- Left Column / Headphones Image -->
-      <div class="left-column">
-        <img data-image="black" src="{{ url_for('static', filename = 'images/' + product.image) }}" alt="">
-      </div>
-
-
-      <!-- Right Column -->
-      <div class="right-column">
-
-        <!-- Product Description -->
-        <div class="product-description">
-          <h1>{{product.title}}</h1>
-          <h4>Категория: {{product.category}}</h4>
-          <h6>На складе: {{product.availibility}}</h6>
-          <p>Описание: <br>
-            {{product.description}}</p>
-
+  <section class="about_section layout_padding">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="detail-box">
+            <div class="heading_container">
+              <h2>
+                {{product.title}}
+              </h2>
+            </div>
+            <p>
+              Категория: {{product.category}}
+            </p>
+            <p>
+              На складе: {{product.availibility}}
+            </p>
+            <p>
+              Описание: {{product.description}}
+            </p>
+            <div class="product-price">
+              <span>${{ product.price }}</span>
+            </div>
+          </div>
         </div>
-
-        <!-- Product Configuration -->
-        <div class="product-configuration">
-
-        <!-- Product Pricing -->
-        <div class="product-price">
-          <span>${{ product.price }}</span>
+        <div class="col-md-6">
+          <div class="img-box">
+            <img  src="{{ url_for('static', filename = 'images/' + product.image) }}" height="50%" width="50%"alt="">
+          </div>
         </div>
       </div>
-    </main>
-
-    <!-- Scripts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js" charset="utf-8"></script>
-    <script src="script.js" charset="utf-8"></script>
-  </body>
-</html>
+    </div>
+  </section>
 {% endblock %}
