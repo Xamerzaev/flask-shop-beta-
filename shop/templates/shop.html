@@ -3,18 +3,15 @@
 <section class="brand_section layout_padding">
   <div class="container">
     <div class="heading_container">
-      <h2>
-        Магазин
-      </h2>
+      <h2>Магазин</h2>
     </div>
     <div class="brand_container layout_padding2">
       {% for product in products %}
       <div class="box">
-        <a href="product_detail">
-
+        <div href="/product_detail">  
           <div class="img-box">
-            <h6><a href="{{url_for('product_detail',product_id=product.id) }}"></a></h6>
-            <img src="{{ url_for('static', filename = 'images/' + product.image) }}" height="150" width="250" alt="">
+            <a href="{{url_for('product_detail',product_id=product.id) }}"></a>
+            <img src="{{ url_for('static', filename = 'images/' + product.image) }}" max-height="5%" alt="">
           </div>
           <div class="detail-box">
             <h6 class="price">
@@ -22,12 +19,9 @@
             </h6>
             <h6>
               <a href="{{url_for('product_detail',product_id=product.id) }}">{{ product.title }}</a>
-              
             </h6>
-            
-            <!-- тут должна быть кнопка которая добавляет в корзину товар -->
           </div>
-        </a>
+        </div>
       </div>
       {% endfor %}
     </div>

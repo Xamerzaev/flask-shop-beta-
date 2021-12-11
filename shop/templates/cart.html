@@ -1,69 +1,15 @@
 {% extends 'base.html' %}
 {%block content%}
+<section class="brand_section layout_padding">
+	<div class="container">
+	  <div class="heading_container">
+		<h2>Корзина</h2>
+	  </div>
+	  <div class="brand_container layout_padding2">
+		{% for cartitem in cartitems %}
 
-<head>
-	<title>Корзина</title>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-	<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
-	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='assets/css/bootstrap.min.css')}}"/>
-	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='assets/css/custom.css')}}"/>		
-</head>
-
-	<nav class="navbar">
-		<div class="container">
-			<a class="navbar-brand" href="#">В магазин</a>
-			<div class="navbar-right">
-				<div class="container minicart"></div>
-			</div>
-		</div>
-	</nav>
-	
-	<div class="container-fluid breadcrumbBox text-center">
-		<ol class="breadcrumb">
-			<li><a href="#">Review</a></li>
-			<li class="active"><a href="#">Order</a></li>
-			<li><a href="#">Payment</a></li>
-		</ol>
+		{% endfor %}
+	  </div>
 	</div>
-	
-	<div class="container text-center">
-
-		<div class="col-md-5 col-sm-12">
-			<div class="bigcart"></div>
-			<h1>Корзина</h1>
-		</div>
-		
-		<div class="col-md-7 col-sm-12 text-left">
-			<ul>
-				<li class="row list-inline columnCaptions">
-					<span>Количество</span>
-					<span>ITEM</span>
-					<span>Цена</span>
-				</li>
-				<li class="row">
-					<span class="quantity">1</span>
-					<span class="itemName">Birthday Cake</span>
-					<span class="popbtn"><a class="arrow"></a></span>
-					<span class="price">$49.95</span>
-				</li>
-			</ul>
-		</div>
-
-	</div>
-
-	<!-- The popover content -->
-
-	<div id="popover" style="display: none">
-		<a href="#"><span class="glyphicon glyphicon-pencil"></span></a>
-		<a href="#"><span class="glyphicon glyphicon-remove"></span></a>
-	</div>
-	
-	<!-- JavaScript includes -->
-
-	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script> 
-	<script src="{{url_for('static', filename = 'assets/js/bootstrap.min.js')}}"></script>
-	<script src="{{url_for('static', filename = 'assets/js/customjs.js')}}"></script>
-
-
+  </section>
 {% endblock %}

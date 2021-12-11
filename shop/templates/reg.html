@@ -1,30 +1,26 @@
  {% extends 'base.html' %}
   {% block content %}
+ 
   <form action="" method="POST" enctype="multipart/form-data" class="form" novalidate>
      {{ form.hidden_tag() }}
      <section class="contact_section layout_padding">
       <div class="container ">
         <div class="heading_container">
-          <h2 class="">
-                  Регистрация
-                </h2>
-              </div>
-              <p>Пожалуйста, заполните данные для регистрации аккаунта</p>
-            </div>
-            <div class="container">
-              <div class="row">
-                <div class="col-md-6">
-            <div>
-         {% if form.email.errors %}
-                 {{ form.email(class="form-control form-control-lg is-invalid", placeholder='Введите email') }}
+          <h2 class="">Регистрация</h2>
+        </div>
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6">
+              {% if form.email.errors %}
+                {{ form.email(class="form-control form-control-lg is-invalid", placeholder='Введите email') }}
                  <div class="invalid-feedback">
                    {% for error in form.email.errors %}
                    <span>{{ error }}</span>
                    {% endfor %}
                  </div>
-                 {% else %}
-                 {{ form.email(class="form-control form-control-lg", placeholder='Введите email') }}
-                 {% endif %}
+              {% else %}
+                {{ form.email(class="form-control form-control-lg", placeholder='Введите email') }}
+              {% endif %}
          
      
          {% if form.password.errors %}
@@ -50,6 +46,11 @@
                  {{ form.confirm_password(class="form-control form-control-lg", placeholder='Подтвердите пароль') }}
                  {% endif %}
        {{ form.submit(class='registerbtn', placeholder='register') }}
-       </div>
-       <a class="nav-link" href="login">Уже есть аккаунт?</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <a class="nav-link" href="/login">Уже есть аккаунт?</a>
+    </section>
+
   {% endblock %}

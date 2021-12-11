@@ -1,5 +1,7 @@
+from itertools import product
 from flask import render_template, request, redirect, url_for, flash, session
 from flask_login import login_user, logout_user, current_user
+from sqlalchemy.orm import query
 
 from shop import app
 from shop.models import Product, User, db, CartItem
@@ -68,31 +70,27 @@ def add_product():
         file_name = request.files.get('image')   
         filename = secure_filename (file_name.filename)
         file_name.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-        p = Product(title=f.get('title'),price=f.get('price'),category=f.get('category'),availibility=f.get('availibility'),description=f.get('description'),
+        p = Product(title=f.get('title'),price=f.get('price'),category=f.get('category'),
+        availibility=f.get('availibility'),description=f.get('description'),
         image=file_name.filename)  
         db.session.add(p)
         db.session.commit()
     return render_template('add_product.html')
 
-@app.route('/add_cart', methods=['GET','POST'])
-def add_cart():
-    if request.method == 'POST':
-        f = request.form 
-        file_name = request.files.get('image')   
-        filename = secure_filename (file_name.filename)
-        file_name.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-        c = CartItem(product_id=f.get('product_id'),user_id=f.get('user_id')) 
-        db.session.add(c)
-        db.session.commit()
-    return render_template('shop.html')
+@app.route('/add_cart', methods=['POST'])
+def addToCart():
+    f = request.form 
+    c = CartItem(product_id=f.get('product_id'), user_id=current_user.id)     
+    db.session.add(c)
+    db.session.commit()
+    flash ('Товар успешно добавлен в корзину!', 'success')
+    return redirect(url_for('shop'))
 
 @app.route('/<int:product_id>')
 def product_detail(product_id):
     product = Product.query.get(product_id)
     return render_template('product_detail.html', product=product)
 
-
-@app.route('/cart')
+@app.route('/cart', methods=['POST', 'GET'])
 def cart():
-    products = Product.query.all()
-    return render_template('cart.html', products=products)
+    return render_template('cart.html')

@@ -270,51 +270,6 @@
 </section>
 
 
-<!-- end discount section -->
-
-<!-- brand section -->
-
-<section class="brand_section">
-  <div class="container">
-    <div class="heading_container">
-      <h2>
-        Магазин
-      </h2>
-    </div>
-    <div class="brand_container layout_padding2">
-      {% for product in products %}
-      <div class="box">
-        <a href="">
-          <div class="new">
-            <h5>
-              new
-            </h5>
-          </div>
-          <div class="img-box">
-            <h6><a href="{{url_for('product_detail',product_id=product.id) }}"></a></h6>
-            <img src="{{ url_for('static', filename = 'images/' + product.image) }}" height="150" width="250" alt="">
-          </div>
-          <div class="detail-box">
-            <h6 class="price">
-              ${{ product.price }}
-            </h6>
-            <h6>
-              <a href="{{url_for('product_detail',product_id=product.id) }}">{{ product.title }}</a>
-            </h6>
-          </div>
-        </a>
-      </div>
-      {% endfor %}
-    </div>
-    <a href="{{url_for('shop') }}" class="brand-btn">
-      В магазин
-    </a>
-    <br>
-
-  </br>
-  </div>
-</section>
-
 <section class="info_section layout_padding2">
   <div class="container">
     <div class="info_logo">
@@ -451,6 +406,5 @@
   </div>
 </section>
 
-<!-- end brand section -->
 
 {%endblock%}

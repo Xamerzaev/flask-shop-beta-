@@ -22,11 +22,19 @@
             <div class="product-price">
               <span>${{ product.price }}</span>
             </div>
+            {% if current_user.is_authenticated %}
+            <form action="/add_cart" method="POST">
+              <input type="hidden" name="product_id" value="{{product.id}}">
+            <button>+</button>
+          </form>
+          {% else %}
+          <a href="{{url_for('login') }}"><p6>Войдите в учетную запись</p6></a>
+          {% endif %}
           </div>
         </div>
         <div class="col-md-6">
           <div class="img-box">
-            <img  src="{{ url_for('static', filename = 'images/' + product.image) }}" height="50%" width="50%"alt="">
+            <img  src="{{ url_for('static', filename = 'images/' + product.image) }}" max-height="50%" max-width="50%"alt="">
           </div>
         </div>
       </div>

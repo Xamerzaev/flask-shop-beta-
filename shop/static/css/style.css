@@ -2,6 +2,7 @@ body {
   font-family: 'Open Sans', sans-serif;
   color: #0c0c0c;
   background-color: #ffffff;
+  overflow: scroll;
   height: 75%
 }
 
@@ -70,8 +71,8 @@ body {
   position: absolute;
   bottom: 0;
   right: 0;
-  width: 20%;
-  height: 100%;
+  max-width: 13%;
+  max-height: 50%;
   background-image: url(../images/hero-side-bg.png);
   background-size: cover;
 }
@@ -1037,17 +1038,17 @@ a:focus {
 }
 
 .custom_menu-btn button {
-  margin-top: 12px;
+  margin-top: 12%;
   outline: none;
   border: none;
-  background-color: transparent;
+  background-color: rgb(255, 255, 255);
 }
 
 .custom_menu-btn button span {
   display: block;
   width: 34px;
   height: 3.5px;
-  background-color: #fff;
+  background-color: rgb(0, 0, 0);
   margin: 8.5px 0;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
@@ -1056,7 +1057,7 @@ a:focus {
 .custom_menu-btn .s-2 {
   -webkit-transition: all 0.1s;
   transition: all 0.1s;
-  width: 17px;
+  max-width: 17px;
   margin-left: auto;
 }
 
