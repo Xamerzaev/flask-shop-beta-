@@ -18,7 +18,7 @@ class Product(db.Model):
     cartitems = db.relationship('CartItem', backref='Product')
 
     def __repr__(self):
-        return '<ProductName %r>' % self.name
+        return self.title
 
 
 class User(db.Model, UserMixin):

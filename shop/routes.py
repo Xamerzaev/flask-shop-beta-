@@ -91,6 +91,7 @@ def product_detail(product_id):
     product = Product.query.get(product_id)
     return render_template('product_detail.html', product=product)
 
-@app.route('/cart', methods=['POST', 'GET'])
+@app.route('/cart')
 def cart():
-    return render_template('cart.html')
+    products = Product.query.all()
+    return render_template('cart.html', products=products)

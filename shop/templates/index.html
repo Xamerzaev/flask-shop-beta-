@@ -294,18 +294,10 @@
           </div>
           <div>
             <div class="img-box">
-              <img src="i{{ url_for('static', filename='mages/telephone-white.png') }}" width="12px" alt="">
+              <img src="{{ url_for('static', filename='images/envelope-white.png') }}" width="20px" alt="">
             </div>
             <p>
-              +7 (928) 000-00-00
-            </p>
-          </div>
-          <div>
-            <div class="img-box">
-              <img src="{{ url_for('static', filename='images/envelope-white.png') }}" width="18px" alt="">
-            </div>
-            <p>
-              demo@gmail.com
+              <h6><a href="mailto:backend.mansur@mail.ru">backend.mansur@mail.ru</a></h6>
             </p>
           </div>
         </div>
@@ -369,15 +361,6 @@
       </div>
       <div class="col-md-3">
         <div class="info_form ">
-          <h5>
-            НОВОСТИ
-          </h5>
-          <form action="">
-            <input type="email" placeholder=" Введите свой email">
-            <button>
-              подписаться
-            </button>
-          </form>
           <div class="social_box">
             <a href="">
               <img src="{{ url_for('static', filename='images/fb.png') }}" alt="">
